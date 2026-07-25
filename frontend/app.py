@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import json
 
-API_URL = "http://localhost:8000"
+API_URL = "https://abdhur-sentryai-backend.hf.space"
 
 st.set_page_config(
     page_title="SentryAI",
