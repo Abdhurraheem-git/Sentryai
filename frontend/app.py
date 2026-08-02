@@ -449,7 +449,7 @@ with tab3:
         
 
     with col2:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        
         st.markdown('<p style="color:#00d4ff;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;">🖥️ System Status</p>', unsafe_allow_html=True)
         try:
             r = requests.get(f"{API_URL}/")
@@ -457,7 +457,7 @@ with tab3:
             st.markdown('<p style="color:rgba(150,200,255,0.6);font-size:0.9rem;">🤖 RoBERTa Model: Loaded<br>⚡ FastAPI: Running<br>📊 Drift Monitor: Active</p>', unsafe_allow_html=True)
         except:
             st.markdown('<p style="color:#ff3c64;">● Backend: OFFLINE</p>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     st.markdown('<br>', unsafe_allow_html=True)
     st.markdown('<div class="section-title">📈 Prediction History & Trends</div>', unsafe_allow_html=True)
