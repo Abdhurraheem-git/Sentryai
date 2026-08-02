@@ -17,6 +17,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=False,
 )
 
 # Load RoBERTa model
@@ -117,21 +118,24 @@ def get_history():
 
 @app.get("/drift-status")
 def drift_status():
-    history = load_history()
-    if len(history) < 20:
-        return {"drift_detected": False, "message": "Not enough data yet"}
+    try:
+        history = load_history()
+        if len(history) < 20:
+            return {"drift_detected": False, "message": "Not enough data yet"}
 
-    scores = [h["score"] for h in history]
-    mid = len(scores) // 2
-    old = scores[:mid]
-    new = scores[mid:]
+        scores = [h["score"] for h in history]
+        mid = len(scores) // 2
+        old = scores[:mid]
+        new = scores[mid:]
 
-    ks_stat, p_value = stats.ks_2samp(old, new)
-    drift_detected = p_value < 0.05
+        ks_stat, p_value = stats.ks_2samp(old, new)
+        drift_detected = bool(p_value < 0.05)
 
-    return {
-        "drift_detected": drift_detected,
-        "ks_statistic": round(ks_stat, 4),
-        "p_value": round(p_value, 4),
-        "message": "Drift detected! Model may need retraining." if drift_detected else "No drift detected."
-    }
+        return {
+            "drift_detected": drift_detected,
+            "ks_statistic": round(ks_stat, 4),
+            "p_value": round(p_value, 4),
+            "message": "Drift detected! Model may need retraining." if drift_detected else "No drift detected."
+       }
+    except Exception as e:
+        return {"drift_detected": False, "message": "Not enough data yet — analyse some reviews first!"}

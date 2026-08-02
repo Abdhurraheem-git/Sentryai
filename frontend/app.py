@@ -434,7 +434,7 @@ with tab3:
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        
         st.markdown('<p style="color:#00d4ff;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;">🔍 Drift Detection</p>', unsafe_allow_html=True)
         if st.button("⚡ Check Drift Now"):
             try:
@@ -446,7 +446,7 @@ with tab3:
                     st.markdown(f'<div class="alert-success">✅ {drift["message"]}</div>', unsafe_allow_html=True)
             except:
                 st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     with col2:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
