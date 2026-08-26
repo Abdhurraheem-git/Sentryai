@@ -283,7 +283,7 @@ with tab1:
     st.markdown('<div class="section-title">📂 Batch Review Analysis</div>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
 
-    uploaded_file = st.file_uploader("Upload reviews (JSON or CSV)", type=["json", "csv"])
+    uploaded_file = st.file_uploader(" ", type=["json", "csv"])
 
     if uploaded_file is not None:
         try:
