@@ -251,7 +251,12 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-
+[data-testid="stFileUploaderDropzone"] {
+    background: #161b22 !important;
+    border: 2px dashed #30363d !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -282,8 +287,8 @@ with tab1:
     st.markdown('<div class="section-title">📂 Batch Review Analysis</div>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
 
-    uploaded_file = st.file_uploader(" ", type=["json", "csv"])
-
+    uploaded_file = st.file_uploader("📂 Browse files (JSON or CSV)", type=["json", "csv"])
+    
     if uploaded_file is not None:
         try:
             if uploaded_file.name.endswith(".json"):
