@@ -251,12 +251,7 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-[data-testid="stFileUploaderDropzone"] {
-    background: #161b22 !important;
-    border: 2px dashed #30363d !important;
-    border-radius: 10px !important;
-    padding: 20px !important;
-}
+#MainMenu, footer, header { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -267,7 +262,18 @@ st.markdown("""
         <div class="nav-logo">🛡️</div>
         <span class="nav-title">SentryAI</span>
     </div>
-    <span style="font-size:13px;color:#8b949e;">Adaptive Sentiment Analysis & Concept Drift Monitor</span>
+    <span st[data-testid="stFileUploaderDropzone"] button {
+    color: transparent !important;
+    position: relative !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button::after {
+    content: "📂 Browse Files" !important;
+    color: #c9d1d9 !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}yle="font-size:13px;color:#8b949e;">Adaptive Sentiment Analysis & Concept Drift Monitor</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -288,7 +294,7 @@ with tab1:
     st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("📂 Browse files (JSON or CSV)", type=["json", "csv"])
-    
+
     if uploaded_file is not None:
         try:
             if uploaded_file.name.endswith(".json"):
