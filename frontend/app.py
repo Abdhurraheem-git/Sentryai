@@ -19,11 +19,8 @@ st.markdown("""
 
 * { font-family: 'Inter', sans-serif !important; }
 
-.stApp {
-    background: #0f1117;
-}
+.stApp { background: #0f1117; }
 
-/* Top navbar */
 .navbar {
     background: #161b22;
     border-bottom: 1px solid #21262d;
@@ -55,39 +52,10 @@ st.markdown("""
     font-size: 18px;
     font-weight: 700;
     color: #f0f6fc;
-    letter-spacing: 0.3px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 24px;
-}
-
-.nav-link {
-    font-size: 13px;
-    color: #8b949e;
-    cursor: pointer;
-}
-
-.nav-link-active {
-    font-size: 13px;
-    color: #3b82f6;
-    border-bottom: 2px solid #3b82f6;
-    padding-bottom: 2px;
-}
-
-.nav-btn {
-    background: #3b82f6;
-    color: white;
-    border-radius: 6px;
-    padding: 6px 16px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* Page title */
 .page-header {
-    padding: 0 32px 24px;
+    padding: 0 0 24px;
 }
 
 .page-title {
@@ -102,19 +70,27 @@ st.markdown("""
     color: #8b949e;
 }
 
-/* Stats cards */
-.stats-grid {
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+}
+
+.stat-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    padding: 0 32px 24px;
+    gap: 14px;
+    margin: 16px 0;
 }
 
 .stat-card {
     background: #161b22;
     border: 1px solid #21262d;
     border-radius: 10px;
-    padding: 20px;
+    padding: 18px;
 }
 
 .stat-label {
@@ -133,8 +109,8 @@ st.markdown("""
     margin-bottom: 6px;
 }
 
-.stat-change-positive {
-    font-size: 12px;
+.badge-green {
+    font-size: 11px;
     color: #3fb950;
     background: rgba(63,185,80,0.1);
     padding: 2px 8px;
@@ -142,8 +118,8 @@ st.markdown("""
     display: inline-block;
 }
 
-.stat-change-negative {
-    font-size: 12px;
+.badge-red {
+    font-size: 11px;
     color: #f85149;
     background: rgba(248,81,73,0.1);
     padding: 2px 8px;
@@ -151,8 +127,8 @@ st.markdown("""
     display: inline-block;
 }
 
-.stat-change-neutral {
-    font-size: 12px;
+.badge-blue {
+    font-size: 11px;
     color: #3b82f6;
     background: rgba(59,130,246,0.1);
     padding: 2px 8px;
@@ -160,60 +136,42 @@ st.markdown("""
     display: inline-block;
 }
 
-/* Alert bar */
-.alert-bar {
-    margin: 0 32px 24px;
+.alert-danger {
     background: rgba(248,81,73,0.08);
     border: 1px solid rgba(248,81,73,0.2);
     border-left: 3px solid #f85149;
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    color: #fca5a5;
+    font-size: 13px;
+    margin: 12px 0;
 }
 
-.alert-bar-success {
-    margin: 0 32px 24px;
+.alert-success {
     background: rgba(63,185,80,0.08);
     border: 1px solid rgba(63,185,80,0.2);
     border-left: 3px solid #3fb950;
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
+    color: #86efac;
+    font-size: 13px;
+    margin: 12px 0;
 }
 
-.alert-bar-warning {
-    margin: 0 32px 24px;
+.alert-warning {
     background: rgba(210,153,34,0.08);
     border: 1px solid rgba(210,153,34,0.2);
     border-left: 3px solid #d2991a;
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
+    color: #fcd34d;
+    font-size: 13px;
+    margin: 12px 0;
 }
 
-/* Content card */
-.content-card {
-    background: #161b22;
-    border: 1px solid #21262d;
-    border-radius: 10px;
-    padding: 24px;
-    margin: 0 32px 24px;
-}
-
-.card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #f0f6fc;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #21262d;
-}
-
-/* Status indicator */
 .status-dot-green {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     background: #3fb950;
     border-radius: 50%;
     margin-right: 6px;
@@ -222,41 +180,26 @@ st.markdown("""
 
 .status-dot-red {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     background: #f85149;
     border-radius: 50%;
     margin-right: 6px;
 }
 
-.status-text {
-    font-size: 13px;
-    color: #3fb950;
-    font-weight: 500;
-}
-
-.status-item {
-    font-size: 12px;
-    color: #8b949e;
-    padding: 4px 0;
-}
-
-/* Streamlit button override */
 .stButton > button {
-    background: #21262d;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    color: #c9d1d9;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 16px;
-    transition: all 0.2s;
+    background: #21262d !important;
+    border: 1px solid #30363d !important;
+    border-radius: 6px !important;
+    color: #c9d1d9 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s !important;
 }
 
 .stButton > button:hover {
-    background: #3b82f6;
-    border-color: #3b82f6;
-    color: white;
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
 }
 
 .stTabs [data-baseweb="tab-list"] {
@@ -290,11 +233,13 @@ st.markdown("""
     font-size: 14px !important;
 }
 
-.stFileUploader {
+.stFileUploader > div {
     background: #161b22 !important;
     border: 2px dashed #30363d !important;
     border-radius: 10px !important;
 }
+
+.stFileUploader label { display: none !important; }
 
 .stProgress > div > div {
     background: #3b82f6 !important;
@@ -318,13 +263,7 @@ st.markdown("""
         <div class="nav-logo">🛡️</div>
         <span class="nav-title">SentryAI</span>
     </div>
-    <div class="nav-links">
-        <span class="nav-link">Dashboard</span>
-        <span class="nav-link">Analytics</span>
-        <span class="nav-link">Reports</span>
-        <span class="nav-link">Settings</span>
-    </div>
-    <div class="nav-btn">+ New Analysis</div>
+    <span style="font-size:13px;color:#8b949e;">Adaptive Sentiment Analysis & Concept Drift Monitor</span>
 </div>
 """, unsafe_allow_html=True)
 
@@ -332,7 +271,7 @@ st.markdown("""
 st.markdown("""
 <div class="page-header">
     <div class="page-title">Sentiment Analytics Dashboard</div>
-    <div class="page-subtitle">Adaptive Sentiment Analysis & Concept Drift Monitor — Powered by RoBERTa</div>
+    <div class="page-subtitle">Powered by RoBERTa Transformer — Real-Time Drift Detection Active</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -341,26 +280,23 @@ tab1, tab2, tab3 = st.tabs(["📂  Batch Analysis", "✍️  Single Text", "📊
 
 # ── TAB 1: Batch ──
 with tab1:
-    st.markdown('<div class="content-card"><div class="card-title">📂 Batch Review Analysis</div>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:16px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">📂 Batch Review Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
 
-    uploaded_file = st.file_uploader("Upload reviews file", type=["json", "csv"], label_visibility="collapsed")
+    uploaded_file = st.file_uploader("Upload", type=["json", "csv"], label_visibility="collapsed")
 
     if uploaded_file is not None:
         try:
             if uploaded_file.name.endswith(".json"):
                 data = json.load(uploaded_file)
-                if isinstance(data, list):
-                    reviews = data
-                else:
-                    reviews = data.get("reviews", [])
+                reviews = data if isinstance(data, list) else data.get("reviews", [])
                 texts = [r if isinstance(r, str) else r.get("text", r.get("review", str(r))) for r in reviews]
             else:
                 df_upload = pd.read_csv(uploaded_file)
                 col = next((c for c in df_upload.columns if "review" in c.lower() or "text" in c.lower() or "comment" in c.lower()), df_upload.columns[0])
                 texts = df_upload[col].dropna().tolist()
 
-            st.markdown(f'<div class="alert-bar-success"><span style="color:#3fb950;font-size:13px;font-weight:500;">✓ Found {len(texts)} reviews — Analysing with RoBERTa AI...</span></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="alert-success">✓ Found {len(texts)} reviews — Analysing with RoBERTa AI...</div>', unsafe_allow_html=True)
 
             results = []
             progress = st.progress(0)
@@ -385,39 +321,37 @@ with tab1:
                 total = len(df_results)
                 neg_pct = (neg / total) * 100
 
-                # Stats
                 st.markdown(f"""
-                <div class="stats-grid" style="padding:16px 0;">
+                <div class="stat-row">
                     <div class="stat-card">
                         <div class="stat-label">Total Reviews</div>
                         <div class="stat-value">{total}</div>
-                        <span class="stat-change-neutral">Analysed</span>
+                        <span class="badge-blue">Analysed</span>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">Positive</div>
                         <div class="stat-value" style="color:#3fb950">{pos}</div>
-                        <span class="stat-change-positive">↑ {round(pos/total*100)}%</span>
+                        <span class="badge-green">↑ {round(pos/total*100)}%</span>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">Negative</div>
                         <div class="stat-value" style="color:#f85149">{neg}</div>
-                        <span class="stat-change-negative">↑ {round(neg_pct)}%</span>
+                        <span class="badge-red">↑ {round(neg_pct)}%</span>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">Neutral</div>
                         <div class="stat-value" style="color:#8b949e">{neu}</div>
-                        <span class="stat-change-neutral">{round(neu/total*100)}%</span>
+                        <span class="badge-blue">{round(neu/total*100)}%</span>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
 
-                # Alert
                 if neg_pct > 40:
-                    st.markdown(f'<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">⚠ Critical: {neg_pct:.1f}% negative reviews detected — Immediate attention required</span><span style="color:#f85149;font-size:12px;font-weight:600;cursor:pointer">Review →</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-danger">⚠ Critical: {neg_pct:.1f}% negative reviews — Immediate attention required</div>', unsafe_allow_html=True)
                 elif neg_pct > 20:
-                    st.markdown(f'<div class="alert-bar-warning"><span style="color:#fcd34d;font-size:13px;">⚠ Warning: {neg_pct:.1f}% of reviews are negative — Monitor closely</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-warning">⚠ Warning: {neg_pct:.1f}% of reviews are negative — Monitor closely</div>', unsafe_allow_html=True)
                 else:
-                    st.markdown(f'<div class="alert-bar-success"><span style="color:#86efac;font-size:13px;">✓ Sentiment healthy — Only {neg_pct:.1f}% negative reviews detected</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-success">✓ Sentiment healthy — Only {neg_pct:.1f}% negative reviews</div>', unsafe_allow_html=True)
 
                 st.dataframe(df_results, use_container_width=True)
 
@@ -433,18 +367,18 @@ with tab1:
                 st.plotly_chart(fig, use_container_width=True)
 
         except Exception as e:
-            st.markdown(f'<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">❌ Error: {e}</span></div>', unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="alert-danger">❌ Error: {e}</div>', unsafe_allow_html=True)
 
 # ── TAB 2: Single Text ──
 with tab2:
-    st.markdown('<div class="content-card"><div class="card-title">✍️ Analyse Single Text</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">✍️ Analyse Single Text</div>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Enter any text, review, emoji, or slang — RoBERTa will classify the sentiment instantly.</p>', unsafe_allow_html=True)
+
     user_input = st.text_area("", height=120, placeholder="Type any sentence, review, emoji or slang here...")
 
     if st.button("Analyse Sentiment"):
         if user_input.strip() == "":
-            st.markdown('<div class="alert-bar-warning"><span style="color:#fcd34d;font-size:13px;">⚠ Please enter some text first.</span></div>', unsafe_allow_html=True)
+            st.markdown('<div class="alert-warning">⚠ Please enter some text first.</div>', unsafe_allow_html=True)
         else:
             with st.spinner("Analysing..."):
                 try:
@@ -454,60 +388,57 @@ with tab2:
                     score = result["score"]
 
                     if "positive" in label.lower():
-                        st.markdown(f'<div class="alert-bar-success"><span style="color:#86efac;font-size:14px;font-weight:600;">✓ {label.upper()}</span><span style="color:#8b949e;font-size:13px;margin-left:12px;">Confidence: {score}</span></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="alert-success">✓ <strong>{label.upper()}</strong> &nbsp;|&nbsp; Confidence: {score}</div>', unsafe_allow_html=True)
                     elif "negative" in label.lower():
-                        st.markdown(f'<div class="alert-bar"><span style="color:#fca5a5;font-size:14px;font-weight:600;">✗ {label.upper()}</span><span style="color:#8b949e;font-size:13px;margin-left:12px;">Confidence: {score}</span></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="alert-danger">✗ <strong>{label.upper()}</strong> &nbsp;|&nbsp; Confidence: {score}</div>', unsafe_allow_html=True)
                     else:
-                        st.markdown(f'<div class="alert-bar-warning"><span style="color:#fcd34d;font-size:14px;font-weight:600;">– {label.upper()}</span><span style="color:#8b949e;font-size:13px;margin-left:12px;">Confidence: {score}</span></div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="alert-warning">– <strong>{label.upper()}</strong> &nbsp;|&nbsp; Confidence: {score}</div>', unsafe_allow_html=True)
                 except:
-                    st.markdown('<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">❌ Cannot connect to backend.</span></div>', unsafe_allow_html=True)
+                    st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # Slang explainer
-    with st.expander("ℹ️ How does SentryAI understand slang, emojis & new language trends?"):
-        st.markdown("""
-        **SentryAI** uses a RoBERTa transformer model pre-trained on millions of real social media posts,
-        so it already understands emojis, slang, and informal internet language (e.g. "fire 🔥", "lowkey bad", "meh").
-
-        When new slang appears, drift detectors (PSI, KS test, JS divergence) notice the shift in prediction
-        patterns and automatically flag the system for retraining — keeping SentryAI accurate over time.
-        """)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown('<div class="section-title">ℹ️ How SentryAI understands slang & emojis</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px;font-size:13px;color:#8b949e;line-height:1.7;">
+    SentryAI uses a <strong style="color:#c9d1d9;">RoBERTa transformer</strong> pre-trained on millions of social media posts, 
+    so it already understands emojis, slang, and informal language (e.g. "fire 🔥", "lowkey bad", "meh").<br><br>
+    When new slang appears, drift detectors (<strong style="color:#c9d1d9;">PSI, KS test, JS divergence</strong>) notice the 
+    shift in prediction patterns and automatically flag the system for retraining — keeping SentryAI accurate over time.
+    </div>
+    """, unsafe_allow_html=True)
 
 # ── TAB 3: Dashboard ──
 with tab3:
-    st.markdown('<div class="content-card"><div class="card-title">📊 Real-Time Dashboard</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">📊 Real-Time Dashboard</div>', unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown('<p style="font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:12px;">🔍 Drift Detection</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:10px;">🔍 Drift Detection</p>', unsafe_allow_html=True)
         if st.button("Check Drift Now"):
             try:
                 response = requests.get(f"{API_URL}/drift-status")
                 drift = response.json()
                 if drift["drift_detected"]:
-                    st.markdown(f'<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">⚠ {drift["message"]} | KS: {drift["ks_statistic"]} | p: {drift["p_value"]}</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-danger">⚠ {drift["message"]}<br><span style="font-size:12px;">KS: {drift["ks_statistic"]} | p-value: {drift["p_value"]}</span></div>', unsafe_allow_html=True)
                 else:
-                    st.markdown(f'<div class="alert-bar-success"><span style="color:#86efac;font-size:13px;">✓ {drift["message"]}</span></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-success">✓ {drift["message"]}</div>', unsafe_allow_html=True)
             except:
-                st.markdown('<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">❌ Cannot connect to backend.</span></div>', unsafe_allow_html=True)
+                st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
 
     with col2:
-        st.markdown('<p style="font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:12px;">🖥️ System Status</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:10px;">🖥️ System Status</p>', unsafe_allow_html=True)
         try:
             r = requests.get(f"{API_URL}/")
-            st.markdown('<p><span class="status-dot-green"></span><span class="status-text">Backend: Online</span></p>', unsafe_allow_html=True)
-            st.markdown('<p class="status-item">🤖 RoBERTa Model: Loaded</p>', unsafe_allow_html=True)
-            st.markdown('<p class="status-item">⚡ FastAPI: Running</p>', unsafe_allow_html=True)
-            st.markdown('<p class="status-item">📊 Drift Monitor: Active</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:13px;"><span class="status-dot-green"></span><span style="color:#3fb950;font-weight:500;">Backend: Online</span></p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:12px;color:#8b949e;">🤖 RoBERTa Model: Loaded</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:12px;color:#8b949e;">⚡ FastAPI: Running</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:12px;color:#8b949e;">📊 Drift Monitor: Active</p>', unsafe_allow_html=True)
         except:
-            st.markdown('<p><span class="status-dot-red"></span><span style="color:#f85149;font-size:13px;">Backend: Offline</span></p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-size:13px;"><span class="status-dot-red"></span><span style="color:#f85149;">Backend: Offline</span></p>', unsafe_allow_html=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # History
-    st.markdown('<div class="content-card"><div class="card-title">📈 Prediction History & Trends</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown('<div class="section-title">📈 Prediction History & Trends</div>', unsafe_allow_html=True)
 
     if "show_history" not in st.session_state:
         st.session_state.show_history = False
@@ -520,7 +451,7 @@ with tab3:
             response = requests.get(f"{API_URL}/history")
             history = response.json()
             if len(history) == 0:
-                st.markdown('<div class="alert-bar-warning"><span style="color:#fcd34d;font-size:13px;">📭 No predictions yet. Upload a file or analyse some text first!</span></div>', unsafe_allow_html=True)
+                st.markdown('<div class="alert-warning">📭 No predictions yet. Upload a file or analyse some text first!</div>', unsafe_allow_html=True)
             else:
                 df = pd.DataFrame(history)
                 st.dataframe(df[["timestamp", "text", "label", "score"]], use_container_width=True)
@@ -558,6 +489,4 @@ with tab3:
                 )
                 st.plotly_chart(fig2, use_container_width=True)
         except:
-            st.markdown('<div class="alert-bar"><span style="color:#fca5a5;font-size:13px;">❌ Cannot connect to backend.</span></div>', unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
