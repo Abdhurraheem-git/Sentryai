@@ -251,7 +251,10 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-
+[data-testid="stFileUploaderDropzoneInput"] + div { display: none !important; }
+.stFileUploader [data-testid="stMarkdownContainer"] { display: none !important; }
+[data-testid="stFileUploader"] span { display: none !important; }
+[data-testid="baseButton-secondary"] span:not(:first-child) { display: none !important; }
 #MainMenu, footer, header { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
