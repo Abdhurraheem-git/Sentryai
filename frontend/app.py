@@ -251,7 +251,7 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-#MainMenu, footer, header { visibility: hidden; }
+
 </style>
 """, unsafe_allow_html=True)
 
