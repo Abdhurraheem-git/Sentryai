@@ -462,7 +462,13 @@ with tab3:
     st.markdown('<br>', unsafe_allow_html=True)
     st.markdown('<div class="section-title">📈 Prediction History & Trends</div>', unsafe_allow_html=True)
 
+    if "show_history" not in st.session_state:
+        st.session_state.show_history = False
+
     if st.button("📊 Load History & Charts"):
+        st.session_state.show_history = not st.session_state.show_history
+
+    if st.session_state.show_history:
         try:
             response = requests.get(f"{API_URL}/history")
             history = response.json()
