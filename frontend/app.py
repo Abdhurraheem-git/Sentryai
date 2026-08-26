@@ -251,7 +251,18 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
+[data-testid="stFileUploaderDropzone"] button {
+    color: transparent !important;
+    position: relative !important;
+}
 
+[data-testid="stFileUploaderDropzone"] button::after {
+    content: "📂 Browse Files" !important;
+    color: #c9d1d9 !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
