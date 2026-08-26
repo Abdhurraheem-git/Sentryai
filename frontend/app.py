@@ -251,7 +251,7 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-[data-testid="stFileUploader"] span:last-child { display: none !important; }
+
 </style>
 """, unsafe_allow_html=True)
 
