@@ -54,9 +54,7 @@ st.markdown("""
     color: #f0f6fc;
 }
 
-.page-header {
-    padding: 0 0 24px;
-}
+.page-header { padding: 0 0 24px; }
 
 .page-title {
     font-size: 24px;
@@ -65,10 +63,7 @@ st.markdown("""
     margin-bottom: 4px;
 }
 
-.page-subtitle {
-    font-size: 14px;
-    color: #8b949e;
-}
+.page-subtitle { font-size: 14px; color: #8b949e; }
 
 .section-title {
     font-size: 14px;
@@ -109,32 +104,9 @@ st.markdown("""
     margin-bottom: 6px;
 }
 
-.badge-green {
-    font-size: 11px;
-    color: #3fb950;
-    background: rgba(63,185,80,0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.badge-red {
-    font-size: 11px;
-    color: #f85149;
-    background: rgba(248,81,73,0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.badge-blue {
-    font-size: 11px;
-    color: #3b82f6;
-    background: rgba(59,130,246,0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    display: inline-block;
-}
+.badge-green { font-size: 11px; color: #3fb950; background: rgba(63,185,80,0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; }
+.badge-red { font-size: 11px; color: #f85149; background: rgba(248,81,73,0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; }
+.badge-blue { font-size: 11px; color: #3b82f6; background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 4px; display: inline-block; }
 
 .alert-danger {
     background: rgba(248,81,73,0.08);
@@ -233,14 +205,6 @@ st.markdown("""
     font-size: 14px !important;
 }
 
-.stFileUploader > div {
-    background: #161b22 !important;
-    border: 2px dashed #30363d !important;
-    border-radius: 10px !important;
-}
-
-.stFileUploader label { display: none !important; }
-
 .stProgress > div > div {
     background: #3b82f6 !important;
     border-radius: 4px !important;
@@ -251,44 +215,23 @@ div[data-testid="stDataFrame"] {
     border: 1px solid #21262d !important;
     border-radius: 8px !important;
 }
-[data-testid="stFileUploaderDropzone"] button {
-    color: transparent !important;
-    position: relative !important;
-}
 
-[data-testid="stFileUploaderDropzone"] button::after {
-    content: "📂 Browse Files" !important;
-    color: #c9d1d9 !important;
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-}
+#MainMenu, footer, header { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── NAVBAR ──
+# NAVBAR
 st.markdown("""
 <div class="navbar">
     <div class="nav-brand">
         <div class="nav-logo">🛡️</div>
         <span class="nav-title">SentryAI</span>
     </div>
-    <span st[data-testid="stFileUploaderDropzone"] button {
-    color: transparent !important;
-    position: relative !important;
-}
-
-[data-testid="stFileUploaderDropzone"] button::after {
-    content: "📂 Browse Files" !important;
-    color: #c9d1d9 !important;
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-}yle="font-size:13px;color:#8b949e;">Adaptive Sentiment Analysis & Concept Drift Monitor</span>
+    <span style="font-size:13px;color:#8b949e;">Adaptive Sentiment Analysis &amp; Concept Drift Monitor</span>
 </div>
 """, unsafe_allow_html=True)
 
-# ── PAGE HEADER ──
+# PAGE HEADER
 st.markdown("""
 <div class="page-header">
     <div class="page-title">Sentiment Analytics Dashboard</div>
@@ -296,15 +239,15 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ── TABS ──
+# TABS
 tab1, tab2, tab3 = st.tabs(["📂  Batch Analysis", "✍️  Single Text", "📊  Dashboard"])
 
-# ── TAB 1: Batch ──
+# TAB 1: Batch
 with tab1:
     st.markdown('<div class="section-title">📂 Batch Review Analysis</div>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Upload a JSON or CSV file containing product reviews for automatic AI-powered analysis.</p>', unsafe_allow_html=True)
 
-    uploaded_file = st.file_uploader("📂 Browse files (JSON or CSV)", type=["json", "csv"])
+    uploaded_file = st.file_uploader("Browse files", type=["json", "csv"])
 
     if uploaded_file is not None:
         try:
@@ -370,7 +313,7 @@ with tab1:
                 if neg_pct > 40:
                     st.markdown(f'<div class="alert-danger">⚠ Critical: {neg_pct:.1f}% negative reviews — Immediate attention required</div>', unsafe_allow_html=True)
                 elif neg_pct > 20:
-                    st.markdown(f'<div class="alert-warning">⚠ Warning: {neg_pct:.1f}% of reviews are negative — Monitor closely</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="alert-warning">⚠ Warning: {neg_pct:.1f}% of reviews are negative</div>', unsafe_allow_html=True)
                 else:
                     st.markdown(f'<div class="alert-success">✓ Sentiment healthy — Only {neg_pct:.1f}% negative reviews</div>', unsafe_allow_html=True)
 
@@ -379,8 +322,7 @@ with tab1:
                 fig = px.pie(df_results, names="sentiment", title="Sentiment Distribution",
                             color_discrete_map={"positive": "#3fb950", "negative": "#f85149", "neutral": "#8b949e"})
                 fig.update_layout(
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(0,0,0,0)",
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                     font=dict(color="#8b949e", family="Inter"),
                     title_font=dict(color="#f0f6fc", size=14),
                     legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color="#8b949e"))
@@ -388,9 +330,9 @@ with tab1:
                 st.plotly_chart(fig, use_container_width=True)
 
         except Exception as e:
-            st.markdown(f'<div class="alert-danger">❌ Error: {e}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="alert-danger">Error: {e}</div>', unsafe_allow_html=True)
 
-# ── TAB 2: Single Text ──
+# TAB 2: Single Text
 with tab2:
     st.markdown('<div class="section-title">✍️ Analyse Single Text</div>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:13px;color:#8b949e;margin-bottom:12px;">Enter any text, review, emoji, or slang — RoBERTa will classify the sentiment instantly.</p>', unsafe_allow_html=True)
@@ -407,7 +349,6 @@ with tab2:
                     result = response.json()
                     label = result["label"]
                     score = result["score"]
-
                     if "positive" in label.lower():
                         st.markdown(f'<div class="alert-success">✓ <strong>{label.upper()}</strong> &nbsp;|&nbsp; Confidence: {score}</div>', unsafe_allow_html=True)
                     elif "negative" in label.lower():
@@ -415,20 +356,20 @@ with tab2:
                     else:
                         st.markdown(f'<div class="alert-warning">– <strong>{label.upper()}</strong> &nbsp;|&nbsp; Confidence: {score}</div>', unsafe_allow_html=True)
                 except:
-                    st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="alert-danger">Cannot connect to backend.</div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<div class="section-title">ℹ️ How SentryAI understands slang & emojis</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">ℹ️ How SentryAI understands slang and emojis</div>', unsafe_allow_html=True)
     st.markdown("""
     <div style="background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px;font-size:13px;color:#8b949e;line-height:1.7;">
-    SentryAI uses a <strong style="color:#c9d1d9;">RoBERTa transformer</strong> pre-trained on millions of social media posts, 
-    so it already understands emojis, slang, and informal language (e.g. "fire 🔥", "lowkey bad", "meh").<br><br>
-    When new slang appears, drift detectors (<strong style="color:#c9d1d9;">PSI, KS test, JS divergence</strong>) notice the 
-    shift in prediction patterns and automatically flag the system for retraining — keeping SentryAI accurate over time.
+    SentryAI uses a <strong style="color:#c9d1d9;">RoBERTa transformer</strong> pre-trained on millions of social media posts,
+    so it already understands emojis, slang, and informal language.<br><br>
+    When new slang appears, drift detectors (<strong style="color:#c9d1d9;">PSI, KS test, JS divergence</strong>) notice the
+    shift in prediction patterns and automatically flag the system for retraining.
     </div>
     """, unsafe_allow_html=True)
 
-# ── TAB 3: Dashboard ──
+# TAB 3: Dashboard
 with tab3:
     st.markdown('<div class="section-title">📊 Real-Time Dashboard</div>', unsafe_allow_html=True)
 
@@ -445,7 +386,7 @@ with tab3:
                 else:
                     st.markdown(f'<div class="alert-success">✓ {drift["message"]}</div>', unsafe_allow_html=True)
             except:
-                st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
+                st.markdown('<div class="alert-danger">Cannot connect to backend.</div>', unsafe_allow_html=True)
 
     with col2:
         st.markdown('<p style="font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:10px;">🖥️ System Status</p>', unsafe_allow_html=True)
@@ -459,12 +400,12 @@ with tab3:
             st.markdown('<p style="font-size:13px;"><span class="status-dot-red"></span><span style="color:#f85149;">Backend: Offline</span></p>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<div class="section-title">📈 Prediction History & Trends</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">📈 Prediction History and Trends</div>', unsafe_allow_html=True)
 
     if "show_history" not in st.session_state:
         st.session_state.show_history = False
 
-    if st.button("Load History & Charts"):
+    if st.button("Load History and Charts"):
         st.session_state.show_history = not st.session_state.show_history
 
     if st.session_state.show_history:
@@ -472,7 +413,7 @@ with tab3:
             response = requests.get(f"{API_URL}/history")
             history = response.json()
             if len(history) == 0:
-                st.markdown('<div class="alert-warning">📭 No predictions yet. Upload a file or analyse some text first!</div>', unsafe_allow_html=True)
+                st.markdown('<div class="alert-warning">No predictions yet. Upload a file or analyse some text first!</div>', unsafe_allow_html=True)
             else:
                 df = pd.DataFrame(history)
                 st.dataframe(df[["timestamp", "text", "label", "score"]], use_container_width=True)
@@ -481,33 +422,27 @@ with tab3:
                                    color="label",
                                    color_discrete_map={"positive": "#3fb950", "negative": "#f85149", "neutral": "#8b949e"})
                 fig1.update_layout(
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(22,27,34,0.8)",
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(22,27,34,0.8)",
                     font=dict(color="#8b949e", family="Inter"),
                     title_font=dict(color="#f0f6fc", size=14),
-                    xaxis=dict(gridcolor="#21262d"),
-                    yaxis=dict(gridcolor="#21262d")
+                    xaxis=dict(gridcolor="#21262d"), yaxis=dict(gridcolor="#21262d")
                 )
                 st.plotly_chart(fig1, use_container_width=True)
 
                 fig2 = go.Figure()
                 fig2.add_trace(go.Scatter(
-                    y=df["score"],
-                    mode="lines+markers",
+                    y=df["score"], mode="lines+markers",
                     line=dict(color="#3b82f6", width=2),
                     marker=dict(color="#3b82f6", size=5),
-                    fill="tozeroy",
-                    fillcolor="rgba(59,130,246,0.05)"
+                    fill="tozeroy", fillcolor="rgba(59,130,246,0.05)"
                 ))
                 fig2.update_layout(
                     title="Confidence Score Over Time (Drift Indicator)",
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(22,27,34,0.8)",
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(22,27,34,0.8)",
                     font=dict(color="#8b949e", family="Inter"),
                     title_font=dict(color="#f0f6fc", size=14),
-                    xaxis=dict(gridcolor="#21262d"),
-                    yaxis=dict(gridcolor="#21262d")
+                    xaxis=dict(gridcolor="#21262d"), yaxis=dict(gridcolor="#21262d")
                 )
                 st.plotly_chart(fig2, use_container_width=True)
         except:
-            st.markdown('<div class="alert-danger">❌ Cannot connect to backend.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="alert-danger">Cannot connect to backend.</div>', unsafe_allow_html=True)
